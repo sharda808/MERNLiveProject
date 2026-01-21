@@ -1,0 +1,130 @@
+ <%- include('../partials/head')%>
+</head>
+<body class="min-h-screen bg-gray-100">
+ <%- include('../partials/nav')%>
+  
+    <h1 class="text-3xl font-bold text-blue-900 mb-6 text-center mt-4">Signup here 
+    </h1>
+<form action="/auth/signup"
+  method="POST" 
+  class="space-y-6 max-w-md mx-auto">
+ <%- include('../partials/error-messages')%>
+
+  <div>
+    <input
+      type="text"
+      name="firstName"
+        value="<%=typeof oldInput !== 'undefined' ? 
+      oldInput.firstName:'' %>"
+          placeholder="First Name"
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg
+             focus:outline-none focus:ring-2 focus:ring-blue-900
+             focus:border-transparent text-gray-800 mb-3"
+     
+    />
+    <input
+      type="text"
+      name="lastName"
+        value="<%=typeof oldInput !== 'undefined' ? 
+      oldInput.lastName:'' %>"
+          placeholder="Last Name"
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg
+             focus:outline-none focus:ring-2 focus:ring-blue-900
+             focus:border-transparent text-gray-800 mb-3"
+     
+    />
+      <input
+      type="email"
+      name="email"
+         value="<%=typeof oldInput !== 'undefined' ? 
+      oldInput.email:'' %>"
+          placeholder="Enter your Email"
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg
+             focus:outline-none focus:ring-2 focus:ring-blue-900
+             focus:border-transparent text-gray-800 mb-3"
+     
+    />
+        <input
+      type="password"
+      name="password"
+         value="<%=typeof oldInput !== 'undefined' ? 
+      oldInput.password:'' %>"
+          placeholder="password"
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg
+             focus:outline-none focus:ring-2 focus:ring-blue-900
+             focus:border-transparent text-gray-800 mb-3"
+   
+    />
+        <input
+      type="password"
+      name="confirm_password"
+         value="<%=typeof oldInput !== 'undefined' ? 
+      oldInput.confirm_password:'' %>"
+          placeholder="Confirm Password"
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg
+             focus:outline-none focus:ring-2 focus:ring-blue-900
+             focus:border-transparent text-gray-800 mb-3"
+   
+    />
+              </div>
+
+
+<div class="mb-4">
+  <p class="text-gray-700 font-medium mb-2">User Type</p>
+
+  <div class="flex items-center gap-6">
+    <label class="flex items-center gap-2 cursor-pointer">
+      <input
+        type="radio"
+        name="userType"
+        value="guest"
+       <%= typeof oldInput !=='undefined' ? (oldInput.userType === 'guest' ? 'checked':''):'' %>
+        class="text-blue-900 focus:ring-blue-900"
+      />
+      <span class="text-gray-800">Guest</span>
+    </label>
+
+    <label class="flex items-center gap-2 cursor-pointer">
+      <input
+        type="radio"
+        name="userType"
+        value="host"
+         <%= typeof oldInput !=='undefined' ? (oldInput.userType === 'host' ? 'checked':''):'' %>
+        class="text-blue-900 focus:ring-blue-900"
+      />
+      <span class="text-gray-800">Host</span>
+    </label>
+  </div>
+<div class="mb-4">
+  <label class="flex items-start gap-2 cursor-pointer">
+    <input
+      type="checkbox"
+      name="termsAccepted"
+      value="on"
+      <%= typeof oldInput !== 'undefined' && oldInput.termsAccepted ? 'checked' : '' %>
+      class="mt-1 text-blue-900 focus:ring-blue-900"
+    />
+    <span class="text-gray-700 text-sm">
+      I agree to the
+      <a href="/terms" class="text-blue-900 underline hover:text-blue-700">
+        Terms and Conditions
+      </a>
+    </span>
+  </label>
+</div>
+
+
+</div>
+  <div>
+    <input 
+      type="submit"
+      value="Sign me up"
+      class="w-full bg-green-500 text-white py-3 rounded-lg
+             font-semibold cursor-pointer
+             hover:bg-green-600 transition duration-300 shadow-md"
+    />
+  </div>
+</form>
+</main>
+</body>
+</html>
